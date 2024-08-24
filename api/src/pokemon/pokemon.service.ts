@@ -6,12 +6,15 @@ import { Pokemon } from "./interfaces/pokemon.interface";
 @Injectable()
 export class PokemonService {
   private readonly baseUrl = process.env.POKEAPI;
+  private readonly limit = process.env.LIMIT;
 
   constructor(private readonly httpService: HttpService) {}
 
   async getAll(offset: number = 0): Promise<string[]> {
     const { data } = await lastValueFrom(
-      this.httpService.get(`${this.baseUrl}?limit=10&offset=${offset}`)
+      this.httpService.get(
+        `${this.baseUrl}?limit=${this.limit}&offset=${offset}`
+      )
     );
     return data.results.map(({ name }) => name);
   }
