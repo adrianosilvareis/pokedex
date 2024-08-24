@@ -1,7 +1,7 @@
 import { Component, inject, input, OnInit } from '@angular/core';
-import { ProgressBarComponent } from '../../components/progress-bar/progress-bar.component';
+import { ProgressBarComponent } from '../components/progress-bar/progress-bar.component';
 import { Pokemon } from '../interfaces/pokemon.interface';
-import { PokemonService } from '../pokemon.service';
+import { PokemonService } from '../pokemon/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-details',

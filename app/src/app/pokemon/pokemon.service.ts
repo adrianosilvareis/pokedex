@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 
 @Injectable()
 export class PokemonService {
-  constructor(private client: HttpClient) {}
+  private client = inject(HttpClient);
 
   getByName(name: string) {
     return this.client.get(`${environment.BASE_URL}/${name}`);

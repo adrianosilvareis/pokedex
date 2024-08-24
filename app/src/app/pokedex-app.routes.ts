@@ -4,7 +4,7 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./pokemon/pokemon-list/pokemon-list.component').then(
+      import('./pokemon-list/pokemon-list.component').then(
         (m) => m.PokemonListComponent
       ),
   },

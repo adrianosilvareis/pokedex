@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime, take } from 'rxjs/operators';
 import { PokemonDetailsComponent } from '../pokemon-details/pokemon-details.component';
-import { PokemonService } from '../pokemon.service';
+import { PokemonService } from '../pokemon/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-list',

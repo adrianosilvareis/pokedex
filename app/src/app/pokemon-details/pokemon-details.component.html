@@ -1,0 +1,29 @@
+<div class="bg-white hover:bg-gray-100 rounded-lg shadow-md p-4 cursor-pointer" (click)="toggle()" data-testid="card">
+  @if (pokemon) {
+    <div class="text-center justify-center">
+      <img data-testid="image" class="h-24 w-24 flex-none rounded-full bg-gray-50 mx-auto" [src]="pokemon.image" [alt]="pokemon.image" >
+      <div class="mt-4 text-center">
+        <p class="text-sm font-semibold leading-6 text-gray-900" data-testid="title">{{ name() }}</p>
+      </div>
+    </div>
+  }
+
+  @if(isOpened) {
+    <div class="mt-4">
+      <span>Statistics of {{name()}}</span>
+      @for (stats of pokemon.stats; track stats.name) {
+        <p class="text-sm font-semibold leading-6 text-gray-900" data-testid="stats">{{stats.name}}: {{ stats.value }}</p>
+        <app-progress-bar [progress]="stats.value"></app-progress-bar>
+      }
+    </div>
+
+    <div class="mt-4">
+      <span>Abilities</span>
+      <div class="grid grid-cols-2 gap-4">
+        @for (ability of pokemon.abilities; track ability) {
+          <p class="text-sm text-center leading-6 text-gray-900 p-1 bg-green-200 rounded" data-testid="abilities">{{ability}}</p>
+        }
+      </div>
+    </div>
+  }
+</div>
